@@ -5,11 +5,13 @@ import static seedu.smartlib.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import seedu.smartlib.commons.core.GuiSettings;
 import seedu.smartlib.commons.core.LogsCenter;
 import seedu.smartlib.commons.core.name.Name;
@@ -422,12 +424,22 @@ public class ModelManager implements Model {
     //=========== Filtered Person List Accessors =============================================================
 
     /**
-     * Returns an unmodifiable view of the filtered reader list.
+     * Returns an unmodifiable view of the filtered book list.
      *
-     * @return an unmodifiable view of the filtered reader list.
+     * @return an unmodifiable view of the filtered book list.
      */
     @Override
     public ObservableList<Book> getFilteredBookList() {
+        return filteredBooks;
+    }
+
+    /**
+     * Returns an unmodifiable view of the sorted book list.
+     *
+     * @return an unmodifiable view of the sorted book list.
+     */
+    @Override
+    public ObservableList<Book> getPopularBookList() {
         return filteredBooks;
     }
 
@@ -483,6 +495,17 @@ public class ModelManager implements Model {
         requireNonNull(predicate);
         filteredRecords.setPredicate(predicate);
     }
+    /**
+     * Updates the comparator of the sorted book list to sort by the given {@code comparator}.
+     *
+     * @param comparator new comparator of the comparator list.
+     */
+    @Override
+    public void updatePopularBookList(Comparator<Book> comparator) {
+        requireNonNull(comparator);
+        Predicate pre = book -> false;
+        
+    }
 
     /**
      * Checks if this ModelManager is equal to another ModelManager.
@@ -506,7 +529,8 @@ public class ModelManager implements Model {
         ModelManager other = (ModelManager) obj;
         return smartLib.equals(other.smartLib)
                 && userPrefs.equals(other.userPrefs)
-                && filteredReaders.equals(other.filteredReaders);
+                && filteredReaders.equals(other.filteredReaders)
+                && filteredBooks.equals(other.filteredBooks);
     }
 
 }

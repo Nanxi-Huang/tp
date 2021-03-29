@@ -39,8 +39,12 @@ public interface Logic {
     /** Returns an unmodifiable view of the filtered list of books */
     ObservableList<Book> getFilteredBookList();
 
+    /** Returns an unmodifiable view of the sorted list of books */
+    ObservableList<Book> getPopularBookList();
+
     /** Returns an unmodifiable view of the filtered list of records */
     ObservableList<Record> getFilteredRecordList();
+
 
     /**
      * Returns the user prefs' smartlib file path.

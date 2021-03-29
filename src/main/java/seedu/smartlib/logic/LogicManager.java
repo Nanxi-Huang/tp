@@ -95,9 +95,19 @@ public class LogicManager implements Logic {
     }
 
     /**
-     * Returns SmartLib's immutable list of books.
+     * Returns SmartLib's immutable list of books sorted by popularity.
      *
-     * @return SmartLib's immutable list of books
+     * @return SmartLib's immutable list of books sorted by popularity
+     */
+    @Override
+    public ObservableList<Book> getPopularBookList() {
+        return model.getPopularBookList();
+    }
+
+    /**
+     * Returns SmartLib's immutable list of records.
+     *
+     * @return SmartLib's immutable list of records
      */
     @Override
     public ObservableList<Record> getFilteredRecordList() {

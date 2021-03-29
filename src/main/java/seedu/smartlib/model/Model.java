@@ -1,6 +1,7 @@
 package seedu.smartlib.model;
 
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
@@ -24,6 +25,7 @@ public interface Model {
 
     /** {@code Predicate} that always evaluate to true */
     Predicate<Record> PREDICATE_SHOW_ALL_RECORDS = unused -> true;
+
 
     /**
      * Replaces user prefs data with the data in {@code userPrefs}.
@@ -179,6 +181,11 @@ public interface Model {
     ObservableList<Book> getFilteredBookList();
 
     /**
+     * Returns an unmodifiable view of the sorted book list.
+     */
+    ObservableList<Book> getPopularBookList();
+
+    /**
      * Returns an unmodifiable view of the filtered record list.
      */
     ObservableList<Record> getFilteredRecordList();
@@ -204,5 +211,11 @@ public interface Model {
      */
     void updateFilteredRecordList(Predicate<Record> predicate);
 
+    /**
+     * Updates the comparator of the sorted book list to compare by the given {@code comparator}.
+     *
+     * @throws NullPointerException if {@code comparator} is null.
+     */
+    void updatePopularBookList(Comparator<Book> comparator);
 
 }
