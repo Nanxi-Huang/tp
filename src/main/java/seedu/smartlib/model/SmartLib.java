@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javafx.collections.ObservableList;
@@ -300,7 +301,7 @@ public class SmartLib implements ReadOnlySmartLib {
      * @param barcode Book's barcode.
      * @return Book Object, null if does not exist.
      */
-    private Book getBookByBarcode(Barcode barcode) {
+    public Book getBookByBarcode(Barcode barcode) {
         requireNonNull(barcode);
         assert(Barcode.isValidBarcode(barcode.getValue()));
         for (Book book: books) {

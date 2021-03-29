@@ -5,6 +5,7 @@ import static seedu.smartlib.commons.util.CollectionUtil.requireAllNonNull;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
@@ -262,6 +263,12 @@ public class ModelManager implements Model {
         boolean status = smartLib.borrowBook(readerName, barcode);
         updateFilteredReaderList(PREDICATE_SHOW_ALL_READERS);
         updateFilteredBookList(PREDICATE_SHOW_ALL_BOOKS);
+
+        if(status) {
+            Book book = smartLib.getBookByBarcode(barcode);
+            book.IncrementBorrowCount();
+        }
+
         return status;
     }
 
@@ -415,17 +422,7 @@ public class ModelManager implements Model {
         smartLib.setReader(target, editedReader);
     }
 
-    //=========== Filtered Person List Accessors =============================================================
-
-    /**
-     * Returns an unmodifiable view of the filtered reader list.
-     *
-     * @return an unmodifiable view of the filtered reader list.
-     */
-    @Override
-    public ObservableList<Book> getFilteredBookList() {
-        return filteredBooks;
-    }
+    //=========== Filtered Reader and Book Lists Accessors =============================================================
 
     /**
      * Returns an unmodifiable view of the filtered book list.
@@ -433,9 +430,20 @@ public class ModelManager implements Model {
      * @return an unmodifiable view of the filtered book list.
      */
     @Override
+    public ObservableList<Book> getFilteredBookList() {
+        return filteredBooks;
+    }
+
+    /**
+     * Returns an unmodifiable view of the filtered reader list.
+     *
+     * @return an unmodifiable view of the filtered reader list.
+     */
+    @Override
     public ObservableList<Reader> getFilteredReaderList() {
         return filteredReaders;
     }
+
 
     /**
      * Updates the filter of the filtered book list to filter by the given {@code predicate}.
@@ -446,6 +454,18 @@ public class ModelManager implements Model {
     public void updateFilteredBookList(Predicate<Book> predicate) {
         requireNonNull(predicate);
         filteredBooks.setPredicate(predicate);
+    }
+
+    /**
+     * Updates the comparator of the filtered book list to compare by the given {@code comparator}.
+     *
+     * @param comparator new comparator of the book list.
+     */
+    @Override
+    public void updatePopularBookList(Comparator<Book> comparator) {
+        requireNonNull(comparator);
+        filteredBooks.forEach(book -> System.out.println(book.getBorrowCount()));
+        filteredBooks.sorted(comparator);
     }
 
     /**

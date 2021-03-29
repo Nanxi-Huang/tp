@@ -22,6 +22,7 @@ public class Book {
     private final Genre genre;
     private final Name borrowerName;
     private final Barcode barcode;
+    private BorrowCounter borrowCount;
 
     /**
      * Constructor for the Book class.
@@ -43,6 +44,7 @@ public class Book {
         this.barcode = barcode;
         this.genre = genre;
         this.borrowerName = null;
+        this.borrowCount = new BorrowCounter(0);
     }
 
     /**
@@ -67,6 +69,7 @@ public class Book {
         this.barcode = barcode;
         this.genre = genre;
         this.borrowerName = borrowerName;
+        this.borrowCount = new BorrowCounter(0);
     }
 
     /**
@@ -142,6 +145,15 @@ public class Book {
     }
 
     /**
+     * Gets the number of times the book is borrowed.
+     *
+     * @return borrowCount of the book.
+     */
+    public int getBorrowCount() {
+        return borrowCount.getValue();
+    }
+
+    /**
      * Returns true if both books have the same name and barcode.
      * This defines a weaker notion of equality between two books.
      *
@@ -156,6 +168,21 @@ public class Book {
         return otherBook != null
                 && otherBook.getName().equals(getName())
                 && otherBook.getBarcode().equals(getBarcode());
+    }
+
+    /**
+     * Increment the BorrowCount by 1 everytime the book is borrowed
+     */
+    public void IncrementBorrowCount() {
+        borrowCount.IncrementBorrowCount();
+    }
+
+    /**
+     * Add on the borrowCounts of other books of the same book title but different barcodes
+     * @param borrowTimes
+     */
+    public void addBorrowCount(int borrowTimes) {
+        borrowCount.addBorrowCount(borrowTimes);
     }
 
     /**
@@ -181,7 +208,8 @@ public class Book {
                 && otherBook.getPublisher().equals(getPublisher())
                 && otherBook.getIsbn().equals(getIsbn())
                 && otherBook.getGenre().equals(getGenre())
-                && otherBook.getBarcode().equals(getBarcode());
+                && otherBook.getBarcode().equals(getBarcode())
+                && ((otherBook.getBorrowCount() - getBorrowCount()) == 0);
     }
 
     /**
@@ -215,7 +243,9 @@ public class Book {
                 .append("; Genre: ")
                 .append(getGenre())
                 .append("; Borrower: ")
-                .append(isBorrowed() ? this.borrowerName : "Not borrowed.");
+                .append(isBorrowed() ? this.borrowerName : "Not borrowed.")
+                .append("; BorrowCount: ")
+                .append(getBorrowCount());
 
         return builder.toString();
     }

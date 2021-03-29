@@ -19,9 +19,11 @@ import seedu.smartlib.logic.commands.FindBookCommand;
 import seedu.smartlib.logic.commands.FindReaderCommand;
 import seedu.smartlib.logic.commands.HelpCommand;
 import seedu.smartlib.logic.commands.ListBookCommand;
+import seedu.smartlib.logic.commands.ListPopularBooksCommand;
 import seedu.smartlib.logic.commands.ListReaderCommand;
 import seedu.smartlib.logic.commands.ReturnCommand;
 import seedu.smartlib.logic.parser.exceptions.ParseException;
+import seedu.smartlib.model.book.PopularBooksComparator;
 
 /**
  * Parses user input.
@@ -91,6 +93,9 @@ public class SmartLibParser {
 
         case HelpCommand.COMMAND_WORD:
             return new HelpCommand();
+
+        case ListPopularBooksCommand.COMMAND_WORD:
+            return new ListPopularBooksCommand(new PopularBooksComparator());
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);

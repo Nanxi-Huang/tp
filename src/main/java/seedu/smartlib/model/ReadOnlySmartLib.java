@@ -27,5 +27,4 @@ public interface ReadOnlySmartLib {
      * This list will not contain any duplicate records.
      */
     ObservableList<Record> getRecordList();
-
 }

@@ -8,6 +8,7 @@ import seedu.smartlib.commons.exceptions.IllegalValueException;
 import seedu.smartlib.model.book.Author;
 import seedu.smartlib.model.book.Barcode;
 import seedu.smartlib.model.book.Book;
+import seedu.smartlib.model.book.BorrowCounter;
 import seedu.smartlib.model.book.Genre;
 import seedu.smartlib.model.book.Isbn;
 import seedu.smartlib.model.book.Publisher;
@@ -26,6 +27,7 @@ class JsonAdaptedBook {
     private final String barcode;
     private final String genre;
     private final String borrowerName;
+    private final String borrowCounter;
 
     /**
      * Constructs a {@code JsonAdaptedBook} with the given book details.
@@ -42,7 +44,8 @@ class JsonAdaptedBook {
     public JsonAdaptedBook(@JsonProperty("name") String name, @JsonProperty("author") String author,
                            @JsonProperty("publisher") String publisher, @JsonProperty("isbn") String isbn,
                            @JsonProperty("barcode") String barcode, @JsonProperty("genre") String genre,
-                           @JsonProperty("borrowerName") String borrowerName) {
+                           @JsonProperty("borrowerName") String borrowerName,
+                           @JsonProperty("borrowCounter") String borrowCounter) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
@@ -50,6 +53,7 @@ class JsonAdaptedBook {
         this.barcode = barcode;
         this.genre = genre;
         this.borrowerName = borrowerName;
+        this.borrowCounter = borrowCounter;
     }
 
     /**
@@ -65,6 +69,7 @@ class JsonAdaptedBook {
         barcode = source.getBarcode().toString();
         genre = source.getGenre().toString();
         borrowerName = source.getBorrowerName() == null ? null : source.getBorrowerName().toString();
+        borrowCounter = String.valueOf(source.getBorrowCount());
     }
 
     /**
@@ -112,7 +117,7 @@ class JsonAdaptedBook {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Barcode.class.getSimpleName()));
         }
         if (!Barcode.isValidBarcode(Integer.parseInt(barcode))) {
-            throw new IllegalValueException(Isbn.MESSAGE_CONSTRAINTS);
+            throw new IllegalValueException(Barcode.MESSAGE_CONSTRAINTS);
         }
         final Barcode modelBarcode = new Barcode(Integer.parseInt(barcode));
 
@@ -128,7 +133,9 @@ class JsonAdaptedBook {
             return new Book(modelName, modelAuthor, modelPublisher, modelIsbn, modelBarcode, modelGenre);
         } else {
             final Name readerName = new Name(borrowerName);
-            return new Book(modelName, modelAuthor, modelPublisher, modelIsbn, modelBarcode, modelGenre, readerName);
+            Book bk = new Book(modelName, modelAuthor, modelPublisher, modelIsbn, modelBarcode, modelGenre, readerName);
+            bk.addBorrowCount(Integer.parseInt(borrowCounter));
+            return bk;
         }
     }
 
