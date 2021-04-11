@@ -4,7 +4,7 @@ title: User Guide
 ---
 
 * Table of Contents
-{:toc}
+  {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -42,21 +42,21 @@ head over to [Quick start](#quick-start) now to learn how to begin your journey 
 3. Copy the file to the folder you want to use as the _home folder_ for your SmartLib.
 
 4. Double-click the file to start the app. The GUI similar to the below should appear in a few seconds. Note how the app
-contains some sample data.<br>
-![Ui](images/Ui.png)
+   contains some sample data.<br>
+   ![Ui](images/Ui.png)
 
 5. Type the command in the command box and press Enter to execute it. e.g. typing **`listbook`** and pressing Enter will
-list all the current books in store.<br>
+   list all the current books in store.<br>
    Some example commands you can try:
 
-   * **`addreader`** `r/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a reader named
-   `John Doe` to SmartLib.
+    * **`addreader`** `r/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a reader named
+      `John Doe` to SmartLib.
 
-   * **`deletereader`** `3` : Deletes the 3rd contact shown in the current list.
+    * **`deletereader`** `3` : Deletes the 3rd contact shown in the current list.
 
-   * **`listbook`** : Lists all stored books in SmartLib.
+    * **`listbook`** : Lists all stored books in SmartLib.
 
-   * **`exit`** : Exits the app.
+    * **`exit`** : Exits the app.
 
 6. Refer to the [Features](#features) below for details of each command.
 
@@ -81,11 +81,11 @@ list all the current books in store.<br>
   e.g. if the command specifies `r/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER r/NAME` is also acceptable.
 
 * If a parameter is expected only once in the command but you specified it multiple times, only the last occurrence of
-the parameter will be taken.<br>
+  the parameter will be taken.<br>
   e.g. if you specify `p/12341234 p/56785678`, only `p/56785678` will be taken.
 
 * Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be
-ignored.<br>
+  ignored.<br>
   e.g. if the command specifies `help 123`, it will be interpreted as `help`.
 
 </div>
@@ -122,7 +122,7 @@ Format: `addreader r/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG, t/TAG, ..., t
 **:information_source: Notes:**
 * Refer to [Readers' Command Parameters](#readers-command-parameters) for more details about each parameter.
 * Note that SmartLib uses reader's name to identify a reader. Hence, there cannot duplicate name is not allowed.
-* The reader's name is case sensitive, e.g. `Bob` and `bob` are two different readers.   
+* The reader's name is case sensitive, e.g. `Bob` and `bob` are two different readers.
 * The `t/TAG` parameters are optional.
 
 Example use:
@@ -155,7 +155,7 @@ Format: `deletereader INDEX`
 
 Example:
 
-If a reader wish to have his/her registration cancelled and personal information erased from SmartLib, 
+If a reader wish to have his/her registration cancelled and personal information erased from SmartLib,
 you can follow the steps below to delete the reader from SmartLib's registered reader base.
 
 Steps:
@@ -169,8 +169,8 @@ Outcome:
 
 Tip:
 * If you have just performed a _findreader_
-  the displayed reader list on SmartLib will be a filtered result of the find command. 
-  To delete the reader by the correct index, you could do `listreader` first to get the complete reader list. 
+  the displayed reader list on SmartLib will be a filtered result of the find command.
+  To delete the reader by the correct index, you could do `listreader` first to get the complete reader list.
 
 #### Finding readers : `findreader`
 
@@ -203,7 +203,7 @@ Steps:
 Outcome:
 * The _Result Display_ will show a message indicating success.
 * SmartLib will list out all the readers with "Bob" in their name.<br><br>
-    ![result for 'findreader Bob'](images/findBobResult.png)
+  ![result for 'findreader Bob'](images/findBobResult.png)
 
 ##### By tag:
 
@@ -235,7 +235,7 @@ Steps:
 Outcome:
 * The _Result Display_ will show a message indicating success.
 * SmartLib will list out all the readers with `VIP` in their list of tags.<br><br>
-    ![result for 'findreader t/VIP'](images/findVIPResult.png)
+  ![result for 'findreader t/VIP'](images/findVIPResult.png)
 
 #### Listing all readers : `listreader`
 
@@ -260,7 +260,7 @@ Steps:
 Outcome:
 * The _Result Display_ will show a message indicating success.
 * SmartLib will list out all the readers.<br><br>
-    ![result for 'listreader'](images/listreaderResult.png)
+  ![result for 'listreader'](images/listreaderResult.png)
 
 ### Managing your books
 
@@ -419,14 +419,14 @@ Format: `borrow bc/BARCODE r/READERNAME`
 
 Example Use:
 * `borrow bc/1000000000 r/Alex` records a rental entry that reader whose name is Alex borrowed
-a copy of The Old Man And The Sea which barcode is 1000000000
+  a copy of The Old Man And The Sea which barcode is 1000000000
 
 
 More Examples:
 * `borrow bc/1234567890125 r/Bernice` records that Bernice borrowed a copy of Cloud Atlas which barcode is 1234567890125
 
 * `borrow bc/1000000001 r/Charlotte` records that Charlotte borrowed a copy of The Hobbit which barcode is 1000000001
-  
+
 Steps:
 1. Type `borrow` in the _Command Box_.
 2. Type `bc/BARCODE` where `BARCODE` is to be replaced by actual barcode
@@ -441,7 +441,7 @@ Outcome:
 * SmartLib will record down this borrowing activity.
 * The relevant parts in UI will be updated.
   ![result for 'borrow bc/1999999999 r/Charlotte'](images/BorrowCommand.png)
-  
+
 #### Returning a book : `return`
 
 Records a returning activity. You need to do so whenever a reader returns a borrowed book.
@@ -469,7 +469,7 @@ Notes:
 
 Outcome:
 * The _Result Display_ will show a message indicating success.
-* If the book returned is an overdue book, SmartLib will show you how long it exceeded the 
+* If the book returned is an overdue book, SmartLib will show you how long it exceeded the
   time limit
 * SmartLib will record down this returning activity.
 * The relevant parts in UI will be updated.
@@ -497,10 +497,10 @@ application.
 
 #### Clearing all entries : `clear-everything-in-my-database`
 
-Clears all entries from SmartLib. 
+Clears all entries from SmartLib.
 
-As there is no undo once you clear all entries, 
-we design the command word for clearing entries in such a way that you will not wipe out your precious data by accident. 
+As there is no undo once you clear all entries,
+we design the command word for clearing entries in such a way that you will not wipe out your precious data by accident.
 
 Format: `clear-everything-in-my-database`
 
@@ -550,22 +550,22 @@ the data of your previous SmartLib home folder.
 ## Glossary
 
 * **Alphanumeric**: Alphanumeric characters include uppercase letters from 'A' to 'Z',
-    lowercase letters from 'a' to 'z', and
-    numbers from '0` to '9'.
+  lowercase letters from 'a' to 'z', and
+  numbers from '0` to '9'.
 
 * **Barcode**: A barcode is an unique identifier for a book. Books with the same name will share the same ISBN,
-    but each copy of a book with have a different barcode. This is to ensure that you will not be having a headache
-    when trying to keep track of which copy of a book has been returned and which copy hasn't.
+  but each copy of a book with have a different barcode. This is to ensure that you will not be having a headache
+  when trying to keep track of which copy of a book has been returned and which copy hasn't.
 
 * **Command Box**: The _Command Box_ is the component of the GUI where you will be entering your user input.
 
 * **International Standard Book Number (ISBN)**: The ISBN is a numeric commercial book identifier which is intended to
-    be unique for each book. Books with the same name will share the same ISBN. A 13-digit ISBN can be separated into 
-    its parts (prefix element, registration group, registrant, publication and check digit), and when this is done it is 
-     customary to separate the parts with hyphens or spaces. 
+  be unique for each book. Books with the same name will share the same ISBN. A 13-digit ISBN can be separated into
+  its parts (prefix element, registration group, registrant, publication and check digit), and when this is done it is
+  customary to separate the parts with hyphens or spaces.
 
 * **Result Display**: The _Result Display_ is the component of the GUI where you will be notified whether your command
-    was successfully executed by SmartLib.
+  was successfully executed by SmartLib.
 
 * **Special characters**: Special characters refer to any characters that are not alphanumeric.
 
