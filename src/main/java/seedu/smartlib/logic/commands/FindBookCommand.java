@@ -14,17 +14,11 @@ public class FindBookCommand extends Command {
 
     public static final String COMMAND_WORD = "findbook";
 
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all books whose titles/labels contain any of "
-            + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Finds all books whose information "
+            + "(title, author, publisher, ISBN, or genre) contain any of the specified keywords (case-insensitive) "
+            + "and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "To find a book with the specified keyword(s) in its title , "
-            + "use \"findbook KEYWORD(S)_IN_TITLE\".\n"
-            + "To find a book with the specified keyword(s) in its labels(author, publisher, isbn, genre), "
-            + "use \"findbook KEYWORD(S)_IN_LABEL\".\n"
-            + "Note that SmartLib also supports the searching of "
-            + "books with titles and labels, or different types of labels within the same command.\n"
-            + "Example (search by titles): " + COMMAND_WORD + " Harry Potter\n"
-            + "Example (search by labels): " + COMMAND_WORD + " Fantasy";
+            + "Example: " + COMMAND_WORD + " Harry Rowling\n";
 
     private final BookNameContainsKeywordsPredicate predicate;
 
