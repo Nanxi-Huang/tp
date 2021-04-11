@@ -1,6 +1,6 @@
 @startuml
 start
-:User inputs 'borrow r/Tom b/Cloud Atlas';
+:User inputs 'borrow bc/1701705829 r/John Doe';
 
 'Since the beta syntax does not support placing the condition outside the
 'diamond we place it as the true branch instead.

@@ -21,7 +21,7 @@ public class FindBookCommand extends Command {
             + "use \"findbook KEYWORD(S)_IN_TITLE\".\n"
             + "To find a book with the specified keyword(s) in its labels(author, publisher, isbn, genre), "
             + "use \"findbook KEYWORD(S)_IN_LABEL\".\n"
-            + "Note that the current version of our app does not support the searching of "
+            + "Note that SmartLib also supports the searching of "
             + "books with titles and labels, or different types of labels within the same command.\n"
             + "Example (search by titles): " + COMMAND_WORD + " Harry Potter\n"
             + "Example (search by labels): " + COMMAND_WORD + " Fantasy";

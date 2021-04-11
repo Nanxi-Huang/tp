@@ -33,20 +33,30 @@ Given below are my contributions to the project.
     * In charge of code quality and documentation comments
 
 * **Enhancements to existing features**:
-    * Refactor the borrow command to accept book barcode and reader name as parameters to prevent mixing of books of the same title (Pull request [\#293]()).
-    * Refactor the return command to accept book barcode only to increase efficiency and prevent mixing of books of the same title (Pull request [\#177]())  
-    * Wrote additional tests for Book class to increase coverage (Pull requests [\#141](), [\#146]()).
-    * Improve the findbook feature to search books through book title, publisher, author, isbn, or genre (Pull request [\#158]()())
+    * Refactor the borrow command to accept book barcode and reader name as parameters to prevent mixing of books of the same title (Pull request 
+      [\#293](https://github.com/AY2021S2-CS2103T-W13-2/tp/pull/293)).
+    * Refactor the return command to accept book barcode only to increase efficiency and prevent mixing of books of the same title (Pull request 
+      [\#177](https://github.com/AY2021S2-CS2103T-W13-2/tp/pull/177))  
+    * Wrote additional tests for Book class to increase coverage (Pull requests 
+      [\#141](https://github.com/AY2021S2-CS2103T-W13-2/tp/pull/141), 
+      [\#146](https://github.com/AY2021S2-CS2103T-W13-2/tp/pull/146)).
+    * Improve the findbook feature to search books through book title, publisher, author, isbn, or genre (Pull request 
+      [\#158](https://github.com/AY2021S2-CS2103T-W13-2/tp/pull/158)())
 
 * **Documentation**:
     * User Guide:
-        * Added documentation for the features `addreader`, `deletereader` and `findbook` (Pull request [\#74](), [\#323]()).
+        * Added documentation for the features `addreader`, `deletereader` and `findbook` (Pull request 
+          [\#74](https://github.com/AY2021S2-CS2103T-W13-2/tp/pull/74), 
+          [\#323](https://github.com/AY2021S2-CS2103T-W13-2/tp/pull/323)).
     * Developer Guide:
-        * Added implementation details of the `return` feature (Pull request [\#198]()).
-        * Added implementation details of the `addreader` feature (Pull request [\#154]()).
+        * Added implementation details of the `return` feature (Pull request 
+          [\#198](https://github.com/AY2021S2-CS2103T-W13-2/tp/pull/198)).
+        * Added implementation details of the `addreader` feature (Pull request 
+          [\#154](https://github.com/AY2021S2-CS2103T-W13-2/tp/pull/154)).
 
 * **Community**:
-    * Reported bugs and suggestions for other teams in the class (examples: [PE-D](https://github.com/Nanxi-Huang/ped/issues))
+    * Reported bugs and suggestions for other teams in the class (examples: 
+      [PE-D](https://github.com/Nanxi-Huang/ped/issues))
   
 
 
